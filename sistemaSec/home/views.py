@@ -67,7 +67,7 @@ def pages(request):
 @login_required(login_url = "/login/")
 def dashboard_estagiario_partiu_estagio(request):
     todos_estagiario = Estagiario.objects.all()
-    estagiario = todos_estagiario.filter(Q(programa_estagiario = 4))
+    estagiario = todos_estagiario.filter(Q(programa_estagiario = 1))
     print("teste")
     dados ={
         "estagiarios": estagiario
@@ -78,7 +78,7 @@ def dashboard_estagiario_partiu_estagio(request):
 @login_required(login_url = "/login/")
 def dashboard_estagiario_mais_futuro(request):
     todos_estagiario = Estagiario.objects.all()
-    estagiario = todos_estagiario.filter(Q(programa_estagiario = 3))
+    estagiario = todos_estagiario.filter(Q(programa_estagiario = 2))
     
     dados = {
         "estagiarios": estagiario
