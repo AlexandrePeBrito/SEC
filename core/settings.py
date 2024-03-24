@@ -122,7 +122,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DB_ENGINE   = os.getenv('DB_ENGINE'   , 'django.db.backends.mysql')
+DB_ENGINE   = os.getenv('DB_ENGINE'   , 'mysql')
 DB_USERNAME = os.getenv('DB_USERNAME' , 'root')
 DB_PASS     = os.getenv('DB_PASS'     , '123456')
 DB_HOST     = os.getenv('DB_HOST'     , '127.0.0.1')
@@ -176,7 +176,7 @@ LANGUAGES = [
     ('it', _('Italiano')),
 ]
 
-LANGUAGE_CODE = 'pt-br'
+LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
 
@@ -194,8 +194,9 @@ LOCALE_PATHS = [
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'sistemaSec/static'),
+    os.path.join(BASE_DIR,'static'),
 ]
 
 MEDIA_URL = 'media/'
@@ -210,18 +211,18 @@ LOGIN_REDIRECT_URL = 'home'
 
 
 # AllAuth
-ACCOUNT_EMAIL_VERIFICATION =  os.getenv('ACCOUNT_EMAIL_VERIFICATION', 'none')
-ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_AUTHENTICATION_METHOD = 'email'
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_CONFIRM_EMAIL_ON_GET = True
-ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
-ACCOUNT_UNIQUE_EMAIL = True
+#ACCOUNT_EMAIL_VERIFICATION =  os.getenv('ACCOUNT_EMAIL_VERIFICATION', 'none')
+#ACCOUNT_EMAIL_REQUIRED = True
+#ACCOUNT_AUTHENTICATION_METHOD = 'email'
+#ACCOUNT_USERNAME_REQUIRED = False
+#ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+#ACCOUNT_LOGIN_ON_EMAIL_CONFIRMATION = True
+#ACCOUNT_UNIQUE_EMAIL = True
 
-AUTHENTICATION_BACKENDS = [
-    'django.contrib.auth.backends.ModelBackend',
-    'allauth.account.auth_backends.AuthenticationBackend',
-]
+#AUTHENTICATION_BACKENDS = [
+#    'django.contrib.auth.backends.ModelBackend',
+#    'allauth.account.auth_backends.AuthenticationBackend',
+#]
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -264,7 +265,16 @@ X_FRAME_OPTIONS = 'SAMEORIGIN'
 
 # ### API-GENERATOR Settings ###
 API_GENERATOR = {
-    'sales'   : "apps.common.models.Sales",
+    'supervisor': 'home.supervisor.models.Supervisor',
+    'sede': 'home.sede.models.Sede',
+    'programa': 'home.programa.models.Programa',
+    'nte': 'home.nte.models.NTE',
+    'municipio': 'home.municipio.models.Municipio',
+    'faculdade': 'home.faculdade.models.Faculdade',
+    'estagiario': 'home.estagiario.models.Estagiario',
+    'edital': 'home.edital.models.Edital',
+    'curso': 'home.curso.models.Curso',
+    'sede_supervisor_estagiario': 'home.estagiario.models.Estagiario',
 }
 
 REST_FRAMEWORK = {

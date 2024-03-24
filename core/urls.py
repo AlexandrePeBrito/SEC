@@ -19,13 +19,9 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
-from home import views
 from django.views.static import serve
 
 
-handler404 = 'home.views.handler404'
-handler403 = 'home.views.handler403'
-handler500 = 'home.views.handler500'
 
 
 urlpatterns = [
@@ -49,7 +45,3 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
-urlpatterns += i18n_patterns(
-    path('i18n/', views.i18n_view, name="i18n_view")
-)
