@@ -55,22 +55,18 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
-
-    'home',
-
-    'apps.api',
-    'apps.charts',
-    'apps.common',
-    'apps.file_manager',
-    'apps.tables',
-    'apps.tasks',
-    'apps.users',
-
-    'allauth',
-    'allauth.account',
-    'allauth.socialaccount',
-    'allauth.socialaccount.providers.google',
-    'allauth.socialaccount.providers.github',
+    
+    'cpf_field',
+    'sistemaSec.home', 
+    'sistemaSec.estagiario',
+    'sistemaSec.supervisor',
+    'sistemaSec.curso',
+    'sistemaSec.faculdade',
+    'sistemaSec.nte',
+    'sistemaSec.programa',      
+    'sistemaSec.municipio',     
+    'sistemaSec.sede',         
+    'sistemaSec.edital',   
 
     'django_celery_results',
     'debug_toolbar',
@@ -106,7 +102,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / 'templates',
+            BASE_DIR / 'sistemaSec/templates',
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -126,12 +122,12 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-DB_ENGINE   = os.getenv('DB_ENGINE'   , None)
-DB_USERNAME = os.getenv('DB_USERNAME' , None)
-DB_PASS     = os.getenv('DB_PASS'     , None)
-DB_HOST     = os.getenv('DB_HOST'     , None)
-DB_PORT     = os.getenv('DB_PORT'     , None)
-DB_NAME     = os.getenv('DB_NAME'     , None)
+DB_ENGINE   = os.getenv('DB_ENGINE'   , 'django.db.backends.mysql')
+DB_USERNAME = os.getenv('DB_USERNAME' , 'root')
+DB_PASS     = os.getenv('DB_PASS'     , '123456')
+DB_HOST     = os.getenv('DB_HOST'     , '127.0.0.1')
+DB_PORT     = os.getenv('DB_PORT'     , '3306')
+DB_NAME     = os.getenv('DB_NAME'     , 'dbsec')
 
 if DB_ENGINE and DB_NAME and DB_USERNAME:
     DATABASES = { 
@@ -199,7 +195,7 @@ STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR,'static'),
+    os.path.join(BASE_DIR,'sistemaSec/static'),
 ]
 
 MEDIA_URL = 'media/'
@@ -210,7 +206,7 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = 'home'
 
 
 # AllAuth
