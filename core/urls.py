@@ -19,26 +19,24 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.conf.urls.i18n import i18n_patterns
-from home import views
 from django.views.static import serve
 
 
-handler404 = 'home.views.handler404'
-handler403 = 'home.views.handler403'
-handler500 = 'home.views.handler500'
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('home.urls')),
-    path("api/", include("apps.api.urls")),
-    path('accounts/', include('allauth.urls')),
-    path('', include('apps.file_manager.urls')),
-    path('tasks/', include('apps.tasks.urls')),
-    path('charts/', include('apps.charts.urls')),
-    path("tables/", include("apps.tables.urls")),
-    path("users/", include("apps.users.urls")),
-    path('i18n/', include('django.conf.urls.i18n')),
+    path("", include("sistemaSec.autenticacao.urls")), 
+    path("", include("sistemaSec.estagiario.urls")),
+    path("", include("sistemaSec.supervisor.urls")),
+    path("", include("sistemaSec.nte.urls")),
+    path("", include("sistemaSec.curso.urls")),
+    path("", include("sistemaSec.programa.urls")),
+    path("", include("sistemaSec.faculdade.urls")),
+    path("", include("sistemaSec.edital.urls")),
+    path("", include("sistemaSec.municipio.urls")),
+    path("", include("sistemaSec.sede.urls")),
+    path("", include("sistemaSec.home.urls")),    
 
     re_path(r'^media/(?P<path>.*)$', serve,{'document_root': settings.MEDIA_ROOT}), 
     re_path(r'^static/(?P<path>.*)$', serve,{'document_root': settings.STATIC_ROOT}), 
@@ -47,7 +45,3 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-
-urlpatterns += i18n_patterns(
-    path('i18n/', views.i18n_view, name="i18n_view")
-)
