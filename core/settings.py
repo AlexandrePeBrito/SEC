@@ -17,6 +17,7 @@ from str2bool import str2bool
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
 
+
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -98,12 +99,12 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'core.urls'
 
+HOME_TEMPLATES      = os.path.join(BASE_DIR, 'templates') 
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [
-            BASE_DIR / 'sistemaSec/templates',
-        ],
+        'DIRS':[HOME_TEMPLATES],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -193,7 +194,6 @@ LOCALE_PATHS = [
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static'),
