@@ -129,17 +129,17 @@ DB_PASS     = os.getenv('DB_PASS'     , '123456')
 DB_HOST     = os.getenv('DB_HOST'     , '127.0.0.1')
 DB_PORT     = os.getenv('DB_PORT'     , '3306')
 DB_NAME     = os.getenv('DB_NAME'     , 'dbsec')
-
+ 
 if DB_ENGINE and DB_NAME and DB_USERNAME:
-    DATABASES = { 
-      'default': {
-        'ENGINE'  : 'django.db.backends.' + DB_ENGINE, 
-        'NAME'    : DB_NAME,
-        'USER'    : DB_USERNAME,
-        'PASSWORD': DB_PASS,
-        'HOST'    : DB_HOST,
-        'PORT'    : DB_PORT,
-        }, 
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.' + os.getenv('DB_ENGINE', 'mysql'),
+            'NAME': os.getenv('DB_NAME', 'dbsec'),
+            'USER': os.getenv('DB_USERNAME', 'root'),
+            'PASSWORD': os.getenv('DB_PASS', '123456'),
+            'HOST': os.getenv('DB_HOST', 'host.docker.internal'),
+            'PORT': os.getenv('DB_PORT', '3306'),
+        }
     }
 else:
     DATABASES = {
@@ -247,7 +247,8 @@ CELERY_SCRIPTS_DIR        = os.path.join(BASE_DIR, "tasks_scripts" )
 CELERY_LOGS_URL           = "/tasks_logs/"
 CELERY_LOGS_DIR           = os.path.join(BASE_DIR, "tasks_logs"    )
 
-CELERY_BROKER_URL         = os.environ.get("CELERY_BROKER", "redis://redis:6379")
+#CELERY_BROKER_URL         = os.environ.get("CELERY_BROKER", "redis://redis:6379")
+CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL', 'redis://localhost:6379')
 CELERY_RESULT_BACKEND     = os.environ.get("CELERY_BROKER", "redis://redis:6379")
 
 CELERY_TASK_TRACK_STARTED = True
