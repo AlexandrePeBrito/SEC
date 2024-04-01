@@ -9,8 +9,8 @@ sqlparse==0.4.4
 toml==0.10.2
 Unipath==1.1
 django-cpf==0.1.0
-pip==23.1.2
-mysqlclient==2.2.4
+pip==24.0
+mysqlclient
 
 # Core
 django==4.2.9
