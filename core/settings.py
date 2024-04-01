@@ -137,7 +137,7 @@ if DB_ENGINE and DB_NAME and DB_USERNAME:
             'NAME': os.getenv('DB_NAME', 'dbsec'),
             'USER': os.getenv('DB_USERNAME', 'root'),
             'PASSWORD': os.getenv('DB_PASS', '123456'),
-            'HOST': os.getenv('DB_HOST', '192.168.1.2'),
+            'HOST': os.getenv('DB_HOST', '168.228.87.196'),
             'PORT': os.getenv('DB_PORT', '3306'),
         }
     }
