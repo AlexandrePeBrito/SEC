@@ -128,17 +128,17 @@ DB_USERNAME = os.getenv('DB_USERNAME' , 'root')
 DB_PASS     = os.getenv('DB_PASS'     , '123456')
 DB_HOST     = os.getenv('DB_HOST'     , '127.0.0.1')
 DB_PORT     = os.getenv('DB_PORT'     , '3306')
-DB_NAME     = os.getenv('DB_NAME'     , 'dbsec')
+DB_NAME     = os.getenv('DB_NAME'     , 'railway')
  
 if DB_ENGINE and DB_NAME and DB_USERNAME:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.' + os.getenv('DB_ENGINE', 'mysql'),
-            'NAME': os.getenv('DB_NAME', 'dbsec'),
+            'NAME': os.getenv('DB_NAME', 'railway'),
             'USER': os.getenv('DB_USERNAME', 'root'),
-            'PASSWORD': os.getenv('DB_PASS', '123456'),
-            'HOST': os.getenv('DB_HOST', '168.228.87.196'),
-            'PORT': os.getenv('DB_PORT', '3306'),
+            'PASSWORD': os.getenv('DB_PASS', 'SFQyScGcErLXeqwUoaQAlHumovHOPKrT'),
+            'HOST': os.getenv('DB_HOST', 'roundhouse.proxy.rlwy.net'),
+            'PORT': os.getenv('DB_PORT', '20440'),
         }
     }
 else:
