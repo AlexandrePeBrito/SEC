@@ -1,0 +1,39 @@
+#desnvolv
+asgiref==3.7.2
+autopep8==2.0.2
+dj-database-url==2.0.0
+pycodestyle==2.10.0
+python-decouple==3.8
+pytz==2023.3
+sqlparse==0.4.4
+toml==0.10.2
+Unipath==1.1
+django-cpf==0.1.0
+pip==24.0
+mysqlclient
+
+# Core
+django==4.2.9
+django-allauth==0.60.1
+PyJWT==2.8.0
+python-dotenv==1.0.1
+str2bool==1.1
+django-quill-editor==0.1.40
+
+# Misc
+celery==5.3.4
+redis==5.0.1
+hiredis==2.3.2
+pillow==10.2.0
+
+# Tools
+django-celery-results==2.5.1
+djangorestframework==3.14.0
+django-api-generator==1.0.17
+django-debug-toolbar==4.2.0
+drf-spectacular==0.26.5
+
+# Deployment
+whitenoise==6.5.0
+gunicorn==21.2.0
+cryptography==42.0.2
