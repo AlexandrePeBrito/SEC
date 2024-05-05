@@ -123,35 +123,22 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
-#DB_ENGINE   = os.getenv('DB_ENGINE'   , 'mysql')
-#DB_USERNAME = os.getenv('DB_USERNAME' , 'root')
-#DB_PASS     = os.getenv('DB_PASS'     , '123456')
-#DB_HOST     = os.getenv('DB_HOST'     , '127.0.0.1')
-#DB_PORT     = os.getenv('DB_PORT'     , '3306')
-#DB_NAME     = os.getenv('DB_NAME'     , 'railway')
-
-DB_ENGINE   = 'mysql'
-DB_USERNAME = 'root'
-DB_PASS     = '123456'
-DB_HOST     = '127.0.0.1'
-DB_PORT     = '3306'
-DB_NAME     = 'dbsec'
+DB_ENGINE   = os.getenv('DB_ENGINE'   , 'mysql')
+DB_USERNAME = os.getenv('DB_USERNAME' , 'root')
+DB_PASS     = os.getenv('DB_PASS'     , '123456')
+DB_HOST     = os.getenv('DB_HOST'     , '127.0.0.1')
+DB_PORT     = os.getenv('DB_PORT'     , '3306')
+DB_NAME     = os.getenv('DB_NAME'     , 'railway')
  
 if DB_ENGINE and DB_NAME and DB_USERNAME:
     DATABASES = {
         'default': {
-            #'ENGINE': 'django.db.backends.' + os.getenv('DB_ENGINE', 'mysql'),
-            #'NAME': os.getenv('DB_NAME', 'railway'),
-            #'USER': os.getenv('DB_USERNAME', 'root'),
-            #'PASSWORD': os.getenv('DB_PASS', 'SFQyScGcErLXeqwUoaQAlHumovHOPKrT'),
-            #'HOST': os.getenv('DB_HOST', 'roundhouse.proxy.rlwy.net'),
-            #'PORT': os.getenv('DB_PORT', '20440'),
-            'ENGINE': 'django.db.backends.' + DB_ENGINE,
-            'NAME': DB_NAME,
-            'USER': DB_USERNAME,
-            'PASSWORD': DB_PASS,
-            'HOST': DB_HOST,
-            'PORT': DB_PORT,
+            'ENGINE': 'django.db.backends.' + os.getenv('DB_ENGINE', 'mysql'),
+            'NAME': os.getenv('DB_NAME', 'railway'),
+            'USER': os.getenv('DB_USERNAME', 'root'),
+            'PASSWORD': os.getenv('DB_PASS', 'SFQyScGcErLXeqwUoaQAlHumovHOPKrT'),
+            'HOST': os.getenv('DB_HOST', 'roundhouse.proxy.rlwy.net'),
+            'PORT': os.getenv('DB_PORT', '20440'),
         }
     }
 else:
