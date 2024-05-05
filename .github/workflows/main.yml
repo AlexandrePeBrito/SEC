@@ -29,5 +29,5 @@ jobs:
           REPO: self
           BRANCH: main # O nome da ramificação para onde você deseja enviar os ativos     LEMBRAR DEPOIS DE GERAR EM OUTRA BRANCH PARA FICAR MAIS LIMPO O CODIGO
           FOLDER: build # O diretório onde seus ativos são gerados
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # O GitHub irá adicionar isso automaticamente - você não precisa se preocupar em obter um token
+          GITHUB_TOKEN: ${{ secrets.PUSH_TOKEN }} # O GitHub irá adicionar isso automaticamente - você não precisa se preocupar em obter um token
           MESSAGE: "Build: ({sha}) {msg}" # A mensagem de commit
